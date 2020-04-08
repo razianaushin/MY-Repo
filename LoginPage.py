@@ -22,3 +22,17 @@ driver.find_element_by_id("password").send_keys(password)
 
 #click on the submit button
 driver.find_element_by_class_name('btn-primary').click()
+
+#find element from google slide
+el = driver.find_element_by_class_name("card-checkbox")
+for i in el:
+	el = i.find_element_by_class_name("check-card-heading")
+	for j in el:
+		print(j.text)
+		if j.text == "Sales Report Generator":
+			i.click()
+			
+
+
+#close the browser
+driver.close()
