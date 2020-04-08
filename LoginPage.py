@@ -3,15 +3,15 @@ from selenium import webdriver
 import time
 email = 'razia.naushin12@gmail.com'
 password = '12345678'
+
 #this name was set during registration
 name = "Test"
 
 #create driver
 driver = webdriver.Chrome(executable_path="./chromedriver")
 
-#open url "gmail.com"
+#open url 
 driver.get("https://report.wugo.io/login")
-
 
 
 # get element to fill email address in email field
