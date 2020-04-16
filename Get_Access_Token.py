@@ -1,6 +1,7 @@
 import requests
 import json
 import sys
+import os 
 url = "https://report-pages.wugo.io/v1/oauth/token"
 
 #datas which need for registration new user
@@ -47,3 +48,23 @@ print("Expire In from response is: " + str(expires_in))
 print("Token type from response is: " + str(token_type))
 print("Access token from response is: " + str(access_token))
 print("Refresh token from response is: " + str(refresh_token))
+
+
+
+if os.path.isfile("access_token.py"):
+	os.remove("access_token.py")
+	message = get_response()
+	access_token = message["access_token"]
+	token_type = message["token_type"]
+	access_token = str(token_type) + " " + str(access_token)
+	f = open("access_token.py", "w")
+	f.write("token = '" + access_token + "'")
+	f.close()
+else:
+	message = get_response()
+	access_token = message["access_token"]
+	token_type = message["token_type"]
+	access_token = str(token_type) + " " + str(access_token)
+	f = open("access_token.py", "w")
+	f.write("token = '" + access_token + "'")
+	f.close()
